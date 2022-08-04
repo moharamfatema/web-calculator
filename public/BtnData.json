@@ -1,23 +1,29 @@
 [
+
+    {
+        "id":"clear",
+        "value":"AC"
+    },
+    {
+        "id":"decimal",
+        "value":"."
+    },
     {
         "id":"equals",
-        "value":"="
+        "value":"=",
+        "type":"operation"
     },
     {
-        "id":"zero",
-        "value":0
+        "id":"seven",
+        "value":"7"
     },
     {
-        "id":"one",
-        "value":"1"
+        "id":"eight",
+        "value":"8"
     },
     {
-        "id":"two",
-        "value":"2"
-    },
-    {
-        "id":"three",
-        "value":"3"
+        "id":"nine",
+        "value":"9"
     },
     {
         "id":"four",
@@ -31,17 +37,22 @@
         "id":"six",
         "value":"6"
     },
+
     {
-        "id":"seven",
-        "value":"7"
+        "id":"one",
+        "value":"1"
     },
     {
-        "id":"eight",
-        "value":"8"
+        "id":"two",
+        "value":"2"
     },
     {
-        "id":"nine",
-        "value":"9"
+        "id":"three",
+        "value":"3"
+    },
+    {
+        "id":"zero",
+        "value":0
     },
     {
         "id":"add",
@@ -62,13 +73,5 @@
         "id":"divide",
         "value":"/",
         "type":"operation"
-    },
-    {
-        "id":"decimal",
-        "value":"."
-    },
-    {
-        "id":"clear",
-        "value":"AC"
     }
 ]

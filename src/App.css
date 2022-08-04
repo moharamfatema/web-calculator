@@ -7,6 +7,9 @@
   --accent-4: #FFCA58;
   --neutral-2: #3D138D;
 
+  --row-size: 8vh;
+  --column-size: 15vmin;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,7 +19,7 @@
 header {
   text-align: center;
   font-weight: 700;
-  font-size: x-large;
+  font-size:2em;
   color: var(--brand);
   background-color: var(--accent-1);
   width:100%;
@@ -39,4 +42,83 @@ footer{
 footer a{
   color:var(--brand);
   text-decoration: unset;
+}
+
+.board{
+  background-color: var(--brand);
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 1.5em;
+  border-radius: 2em;
+  justify-content: space-evenly;
+  margin: 1em 1em;
+}
+
+#display{
+  background-color: var(--accent-3);
+  color: var(--brand);
+  padding: 0 0.5em;
+  border-radius: 2em;
+  margin: 0 0 1em 0;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+.keypad{
+  display: grid;
+  grid-gap: 0.1em;
+  grid-template:
+    var(--row-size) var(--row-size) var(--row-size) var(--row-size) var(--row-size) /
+    var(--column-size) var(--column-size) var(--column-size) var(--column-size) ;
+}
+
+.keypad button{
+  background-color: var(--accent-3);
+  color: var(--neutral-2);
+  padding: 0.5em;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+  font-size:1em;
+  border: unset;
+  border-radius: 0.3em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.keypad .operation{
+  background-color: var(--accent-1);
+}
+#clear{
+  grid-column: 1 / 3;
+  background-color: var(--accent-4);
+}
+#divide{
+  grid-column: 3 / auto;
+  grid-row: 1 / auto;
+}
+#multiply{
+  grid-column: 4 / auto;
+  grid-row: 1 / auto;
+}
+#subtract{
+  grid-column: 4 / auto;
+  grid-row: 2 / auto;
+}
+#add{
+  grid-column: 4 / auto;
+  grid-row: 3 / auto;
+}
+#equals{
+  grid-column: 4 / auto;
+  grid-row: 4 / 6;
+  background-color: var(--accent-1);
+  color: var(--brand);
+}
+#zero{
+  grid-column: 1 / 3;
+  grid-row: 5 / 5;
+}
+#decimal{
+  grid-column: 3 / 4;
+  grid-row: 5 / 5;
 }

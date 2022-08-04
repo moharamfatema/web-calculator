@@ -53,6 +53,7 @@ function App() {
               onClick={onClick}
               value={btn.value}
               type={btn.type}
+              className={btn.type}
             >
               {btn.value}
             </button>
