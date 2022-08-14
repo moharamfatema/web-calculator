@@ -3,11 +3,15 @@ import { Parser } from 'expr-eval'
 import './App.css'
 
 function App() {
+    const initialState = {
+        operands: [],
+        operations: [],
+        disp: 0,
+        currentOperand: 0,
+        result: false,
+    }
     const [btns, setBtns] = useState([])
-    const [disp, setDisp] = useState(0)
-    const [operands, setOperands] = useState([])
-    const [operations, setOperations] = useState([])
-    const [currentOperand, setCurrentOperand] = useState(0)
+    const [state, setState] = useState(initialState)
 
     useEffect(() => {
         fetch('./BtnData.json')
@@ -18,50 +22,72 @@ function App() {
     }, [])
 
     useEffect(() => {
-        console.debug(`current Operand = ${currentOperand}`)
-        console.debug(`Operands Array = ${operands}`)
-        console.debug(`Operations Array = ${operations}`)
-
-        let newDisplay = ''
-        for (let n = 0; n < operands.length + operations.length; n += 1) {
-            if (n % 2 === 0) {
-                // even
-                newDisplay += operands[n / 2]
-            } else {
-                // odd
-                newDisplay += operations[(n - 1) / 2]
+        if (!state.result) {
+            let newDisplay = ''
+            for (
+                let n = 0;
+                n < state.operands.length + state.operations.length;
+                n += 1
+            ) {
+                if (n % 2 === 0) newDisplay += state.operands[n / 2]
+                else newDisplay += state.operations[(n - 1) / 2]
             }
-        }
 
-        newDisplay += currentOperand
-        console.log(Parser.evaluate(newDisplay))
-        setDisp(newDisplay)
-    }, [currentOperand, operations, operands])
+            newDisplay += state.currentOperand
+            setState(prev => ({ ...prev, disp: newDisplay }))
+        }
+    }, [state.currentOperand, state.operations, state.operands])
 
     const onClick = e => {
+        let res = 0
         switch (e.target.className) {
             case 'clear':
-                setOperands([])
-                setOperations([])
-                setCurrentOperand(0)
-                console.debug('clear button is pressed')
+                setState(initialState)
                 break
             case 'operation':
-                setOperations([...operations, e.target.value])
-                setOperands([...operands, parseFloat(currentOperand)])
-                setCurrentOperand(0)
+                setState(prev => ({
+                    ...prev,
+                    operations: [...prev.operations, e.target.value],
+                    operands: [
+                        ...prev.operands,
+                        parseFloat(prev.currentOperand),
+                    ],
+                    currentOperand: 0,
+                    result: false,
+                }))
                 break
             case 'decimal':
-                setCurrentOperand(
-                    parseFloat(currentOperand === '.' ? 0 : currentOperand) +
-                        e.target.value,
-                )
+                setState(prev => ({
+                    ...prev,
+                    result: false,
+                    currentOperand:
+                        parseFloat(
+                            prev.currentOperand === '.'
+                                ? 0
+                                : prev.currentOperand,
+                        ) + e.target.value,
+                }))
                 break
             case 'equals':
-                // TODO: implement doMath()
+                try {
+                    res = Parser.evaluate(state.disp)
+                } catch (err) {
+                    res = 0
+                } finally {
+                    setState({
+                        ...initialState,
+                        currentOperand: res,
+                        result: true,
+                        disp: res,
+                    })
+                }
                 break
             default:
-                setCurrentOperand(currentOperand + e.target.value)
+                setState(prev => ({
+                    ...prev,
+                    result: false,
+                    currentOperand: prev.currentOperand + e.target.value,
+                }))
         }
     }
 
@@ -79,7 +105,7 @@ function App() {
 
             <div className="board">
                 <div id="display">
-                    <p>{disp}</p>
+                    <p>{state.disp}</p>
                 </div>
 
                 <div className="keypad">

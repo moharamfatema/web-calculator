@@ -1,16 +1,15 @@
 {
-  "short_name": "Calculator",
-  "name": "simple web calculator",
-  "icons": [
-    {
-      "src": "icon-32.ico",
-      "sizes": "32x32",
-      "type": "image/x-icon"
-    }
-
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+    "short_name": "Calculator",
+    "name": "simple web calculator",
+    "icons": [
+        {
+            "src": "icon-32.ico",
+            "sizes": "32x32",
+            "type": "image/x-icon"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
 }

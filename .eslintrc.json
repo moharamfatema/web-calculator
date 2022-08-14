@@ -17,7 +17,7 @@
     "plugins": [
         "react"
     ],
-    "ignorePatterns":["*.test.js"],
+    "ignorePatterns":["*.test.js","*.ico","*.svg","*.png"],
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
 
