@@ -1,23 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400;700&display=swap');
 
 body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-  font-family: 'Roboto Mono', monospace;
-
+    font-family: 'Roboto Mono', monospace;
 }
-@media (min-width:576px) {
-  body{font-size: 18px;}
+@media (min-width: 576px) {
+    body {
+        font-size: 18px;
+    }
 }
-@media (max-width:576px) and  (min-width:100) {
-  body{font-size: 16px;}
+@media (max-width: 576px) and (min-width: 100) {
+    body {
+        font-size: 16px;
+    }
 }
-@media (max-width:200px) {
-  body{font-size: 12px;}
+@media (max-width: 200px) {
+    body {
+        font-size: 12px;
+    }
 }
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }

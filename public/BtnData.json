@@ -2,57 +2,69 @@
 
     {
         "id":"clear",
-        "value":"AC"
+        "value":"AC",
+        "type":"clear"
     },
     {
         "id":"decimal",
-        "value":"."
+        "value":".",
+        "type":"decimal"
     },
     {
         "id":"equals",
         "value":"=",
-        "type":"operation"
+        "type":"equals"
     },
     {
         "id":"seven",
-        "value":"7"
+        "value":"7",
+        "type":"number"
     },
     {
         "id":"eight",
-        "value":"8"
+        "value":"8",
+        "type":"number"
     },
     {
         "id":"nine",
-        "value":"9"
+        "value":"9",
+        "type":"number"
     },
     {
         "id":"four",
-        "value":"4"
+        "value":"4",
+        "type":"number"
     },
     {
         "id":"five",
-        "value":"5"
+        "value":"5",
+        "type":"number"
     },
     {
         "id":"six",
-        "value":"6"
+        "value":"6",
+        "type":"number"
     },
 
     {
         "id":"one",
-        "value":"1"
+        "value":"1",
+        "type":"number"
     },
     {
         "id":"two",
-        "value":"2"
+        "value":"2",
+        "type":"number"
     },
     {
         "id":"three",
-        "value":"3"
+        "value":"3",
+        "type":"number"
     },
     {
         "id":"zero",
-        "value":0
+        "value":0,
+        "type":"number"
     },
     {
         "id":"add",
