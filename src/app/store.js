@@ -32,9 +32,6 @@ const getExpression = (state = initialState) => {
 const reducer = (state = initialState, action = { type: CLEAR }) => {
     let res = 0
     switch (action.type) {
-        case `@@INIT`:
-        case CLEAR:
-            return initialState
         case OPERATION:
             if (
                 state.currentOperand === '-' ||
@@ -88,7 +85,6 @@ const reducer = (state = initialState, action = { type: CLEAR }) => {
                 disp: res,
             }
         case NUMBER:
-        default: {
             return {
                 ...state,
                 currentOperand:
@@ -100,7 +96,9 @@ const reducer = (state = initialState, action = { type: CLEAR }) => {
                         ? ``
                         : state.currentOperand) + action.payload,
             }
-        }
+        case CLEAR:
+        default:
+            return initialState
     }
 }
 /* eslint-disable no-underscore-dangle */
