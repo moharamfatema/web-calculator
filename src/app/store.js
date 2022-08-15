@@ -101,10 +101,4 @@ const reducer = (state = initialState, action = { type: CLEAR }) => {
             return initialState
     }
 }
-/* eslint-disable no-underscore-dangle */
-export default configureStore(
-    { reducer, initialState },
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__(),
-)
-/* eslint-enable */
+export default configureStore({ reducer, initialState })
