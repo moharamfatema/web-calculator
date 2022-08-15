@@ -13,7 +13,6 @@ function App() {
             .then(res => {
                 setBtns([...res])
             })
-        dispatch({ type: 'clear' }) // TODO: fix this issue of initial state being null
     }, [])
 
     const onClick = e => {

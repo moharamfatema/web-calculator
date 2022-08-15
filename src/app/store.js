@@ -32,6 +32,7 @@ const getExpression = (state = initialState) => {
 const reducer = (state = initialState, action = { type: CLEAR }) => {
     let res = 0
     switch (action.type) {
+        case `@@INIT`:
         case CLEAR:
             return initialState
         case OPERATION:
