@@ -19,7 +19,7 @@
     ],
     "ignorePatterns":["*.test.js","*.ico","*.svg","*.png"],
     "rules": {
+        "no-debugger":"warn",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
-
     }
 }
