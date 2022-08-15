@@ -35,6 +35,30 @@ const reducer = (state = initialState, action = { type: CLEAR }) => {
         case CLEAR:
             return initialState
         case OPERATION:
+            if (
+                state.currentOperand === '-' ||
+                (state.operands.length <= state.operations.length &&
+                    state.currentOperand === 0)
+            ) {
+                if (action.payload === '-')
+                    return {
+                        ...state,
+                        currentOperand: '-',
+                        disp: action.payload,
+                    }
+                return {
+                    ...state,
+                    currentOperand: 0,
+                    disp: action.payload,
+                    operations: [
+                        ...state.operations.slice(
+                            0,
+                            state.operations.length - 1,
+                        ),
+                        action.payload,
+                    ],
+                }
+            }
             return {
                 ...state,
                 operations: [...state.operations, action.payload],
@@ -43,6 +67,7 @@ const reducer = (state = initialState, action = { type: CLEAR }) => {
                 disp: action.payload,
             }
         case DECIMAL:
+            if (state.currentOperand.includes('.')) return state
             return {
                 ...state,
                 currentOperand:
