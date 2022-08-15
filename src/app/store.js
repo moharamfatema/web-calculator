@@ -28,6 +28,7 @@ const getExpression = (state = initialState) => {
     newDisplay += state.currentOperand
     return newDisplay
 }
+
 const reducer = (state = initialState, action = { type: CLEAR }) => {
     let res = 0
     switch (action.type) {
@@ -64,8 +65,14 @@ const reducer = (state = initialState, action = { type: CLEAR }) => {
         default: {
             return {
                 ...state,
-                currentOperand: state.currentOperand + action.payload,
-                disp: state.currentOperand + action.payload,
+                currentOperand:
+                    (`${state.currentOperand}` === `0`
+                        ? ``
+                        : state.currentOperand) + action.payload,
+                disp:
+                    (`${state.currentOperand}` === `0`
+                        ? ``
+                        : state.currentOperand) + action.payload,
             }
         }
     }

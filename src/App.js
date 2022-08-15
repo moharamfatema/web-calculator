@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
 import './App.css'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
 
             <div className="board">
                 <div id="display">
-                    <p>{store.disp}</p>
+                    <p>{`${store.disp}`}</p>
                 </div>
 
                 <div className="keypad">
